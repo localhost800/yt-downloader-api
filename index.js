@@ -10,7 +10,7 @@ app.get("/", (req, res)=>{
 app.post("/download", (req, res)=>{
 	const url = req.body.url;
 	const date = Date.now();
-	res.header("Content-Disposition", `attachment; filename="linkit_aud_${date}.mp3"`);
+	res.header("Content-Disposition", `attachment; filename="linkit_aud${date}.mp3"`);
 	return ytdl(url, {filter: 'audioonly', format: 'mp3'}).pipe(res);
 });
 app.listen(3000, ()=>{
