@@ -10,7 +10,7 @@ app.post("/download", (req, res)=>{
 	const date = Date.now();
 	res.header("Content-Disposition", `attachment; filename="linkit_aud_${date}.mp3"`);
 	return ytdl(url, {filter: 'audioonly', format: 'mp3'}).pipe(res);
-}
+});
 app.listen(3000, ()=>{
 	console.log("Server listening on port", 3000);
 });
